@@ -1,7 +1,7 @@
-基于[CloudflareWorker-KV-UrlShort](https://github.com/Ai-Yolo/CloudflareWorker-KV-UrlShort)进行了修改
+基于[CloudflareWorker-KV-UrlShort](https://github.com/Ai-Yolo/CloudflareWorker-KV-UrlShort)进行了修改。
 
 
-# 简约短链接生成器
+# 简约短链接生成器 Enhanced
 
 一个基于 Cloudflare Workers 和 KV 存储的短链接生成服务。
 因为[Cloudflare](https://www.cloudflare.com)的免费套餐有限制，所以不提供预览地址，请自行前往[cloudflare Work](https://dash.cloudflare.com)部署。  
