@@ -1,3 +1,6 @@
+基于[CloudflareWorker-KV-UrlShort](https://github.com/Ai-Yolo/CloudflareWorker-KV-UrlShort)进行了修改
+
+
 # 简约短链接生成器
 
 一个基于 Cloudflare Workers 和 KV 存储的短链接生成服务。
@@ -13,6 +16,38 @@
 - 🤖 集成 Cloudflare Turnstile 人机验证
 - 🎨 简洁美观的用户界面
 - ✨ 支持自定义短链接
+
+## Enhanced 新增功能
+1. 管理员鉴权功能：
+- 🔑 添加了管理员用户名和密码配置
+- 🛡️ 实现了基于JWT的简单身份验证系统
+- 🚪 添加了登录API端点/api/admin/login
+- ✅ 添加了令牌验证函数verifyAdminToken
+
+2. 管理员面板：
+- 🗺️ 创建了/admin路由，提供管理员面板
+- 📋 实现了登录表单和短链接管理界面
+- 📊 添加了分页功能，方便管理大量短链接
+
+3. 短链接删除功能：
+- 📂 添加了/api/links端点用于获取所有短链接
+- ❌ 添加了/api/links/:slug端点用于删除短链接
+- ⚠️ 实现了删除确认模态框，防止误操作
+
+4. 安全性改进：
+- 🛠️ 所有管理操作都需要管理员验证
+- 🔑 使用Bearer令牌进行API授权
+- ⏳ 添加了登录会话过期机制
+
+5. 用户体验优化：
+- 🏠 在前台页面添加了管理员入口链接
+- 📱 实现响应式表格，适应不同屏幕尺寸
+- ⏳ 添加了加载状态和错误处理
+
+6. 代码健壮性：
+- 📜 增加了更多的错误处理和验证
+- 🔧 修复了Turnstile验证相关的潜在错误
+- ⚙️ 改进了异常处理逻辑
 
 ## 部署步骤
 
@@ -40,6 +75,8 @@
 3. 在 Workers 设置中添加环境变量:
    - `TURNSTILE_SITE_KEY`: 你的 site key
    - `TURNSTILE_SECRET`: 你的 secret key
+   - `ADMIN_USERNAME`: 自定义后台管理用户名
+   - `ADMIN_PASSWORD`: 自定义后台管理密码
 
 ## 预览图
 
@@ -55,6 +92,7 @@
    - 访问密码
    - 最大访问次数
 4. 点击生成按钮获取短链接
+5. 管理员默认用户名和密码为`admin/yourStrongPassword`
 
 ## 注意事项
 #### Workers  
